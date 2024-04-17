@@ -384,14 +384,10 @@ def api_endpoint_from_url(request_url):
     """Extract the API endpoint from the request URL."""
     if "api.openai.com" in request_url:
         # 处理OpenAI API的URL
-        match = re.search(r"^https://[^/]+/v\\d+/(.+)$", request_url)
+        match = re.search(r"^https://[^/]+/v\d+/(.+)$", request_url)
         if match:
             return match.group(1)
-    elif "43.134.225.36" in request_url:
-        # 处理BNU的URL
-        match = re.search(r"^http://[^/]+/v\d+/(.+)$", request_url)
-        if match:
-            return match.group(1)
+        print(request_url)
     elif "dashscope.aliyuncs.com" in request_url:
         # 处理新API的URL
         match = re.search(r"^https://[^/]+/api/v1/services/aigc/([^?]+)", request_url)
