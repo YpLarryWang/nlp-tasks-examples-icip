@@ -5,5 +5,5 @@
 调用方法如下：
 
 ```bash
-sh run.sh
+sh llm-api/run.sh
 ```
