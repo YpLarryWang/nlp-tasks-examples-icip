@@ -30,7 +30,7 @@
 
 ## 安装库
 ### 必须安装的库
-```
+```bash
 pip install transformers
 pip install accelerate
 pip install datasets
@@ -38,26 +38,33 @@ pip install sacrebleu
 ```
 
 ### 可选的库
-```
+```bash
 pip install evaluate
 ```
 如果要使用`mengzi-t5-base`，需要下载下面的包
-```
+```bash
 pip install protobuf
 ```
 
 ## 设置多卡并行环境
-```
+```bash
 accelerate config
 ```
 
 ## 多卡训练
-```
-accelerate launch --num_processes 2 seq2seq_translation_finetuning.py --config config_atm_trans_mengzi-t5-base.yaml
+
+以`bart-base-chinese`为例，运行
+```bash
+accelerate launch --num_processes 2 seq2seq_translation_finetuning.py --config config_atm_trans_bart-base-chinese.yaml
 ```
 参考资料如下（在右侧栏点击“特定GPU选择”）
 - https://huggingface.co/docs/transformers/main/zh/main_classes/trainer
 
+## 推理
+以`bart-base-chinese`为例，运行
+```bash
+bash seq2seq_trans_infer.bash
+```
 
 ## 可能存在的问题
 
