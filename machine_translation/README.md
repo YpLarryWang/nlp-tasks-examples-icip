@@ -1,4 +1,6 @@
-# 参考资料：
+# 文白机器翻译
+
+## 参考资料：
 参考huggingface上seq2seq的文档、教程、示例：
 - 序列到序列（seq2seq）模型：https://huggingface.co/learn/nlp-course/chapter1/7
 - BART模型官方文档：https://huggingface.co/docs/transformers/model_doc/bart
@@ -6,11 +8,11 @@
 - 使用T5进行机器翻译（colab notebook）：https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/translation.ipynb
 - 使用T5进行文本摘要（colab notebook）：https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/summarization.ipynb
 
-# 数据来源
+## 数据来源
 
 - 小牛翻译：https://github.com/NiuTrans/Classical-Modern
 
-# 可用模型及其位置
+## 可用模型及其位置
 
 **建议**：当一个模型可以同时在huggingface和modelscope上下载时，且确认modelscope版本和huggingface版本相同时，**优先选择modelscope上的下载链接**，因为modelscope对网络环境的要求更低，陆上玩家往往可以跑满带宽。
 
@@ -26,8 +28,8 @@
 - `google/mt5-base`：可以[从huggingface上下载](https://huggingface.co/google/mt5-base)；
 - `iic/nlp_mt5_zero-shot-augment_chinese-base`：全任务零样本学习-mT5分类增强版-中文-base，可以[从modelscope上下载](https://modelscope.cn/models/iic/nlp_mt5_zero-shot-augment_chinese-base/summary)；
 
-# 安装库
-## 必须安装的库
+## 安装库
+### 必须安装的库
 ```
 pip install transformers
 pip install accelerate
@@ -35,7 +37,7 @@ pip install datasets
 pip install sacrebleu
 ```
 
-## 可选的库
+### 可选的库
 ```
 pip install evaluate
 ```
@@ -44,12 +46,12 @@ pip install evaluate
 pip install protobuf
 ```
 
-# 设置多卡并行环境
+## 设置多卡并行环境
 ```
 accelerate config
 ```
 
-# 多卡训练
+## 多卡训练
 ```
 accelerate launch --num_processes 2 seq2seq_translation_finetuning.py --config config_atm_trans_mengzi-t5-base.yaml
 ```
@@ -57,7 +59,7 @@ accelerate launch --num_processes 2 seq2seq_translation_finetuning.py --config c
 - https://huggingface.co/docs/transformers/main/zh/main_classes/trainer
 
 
-# 可能存在的问题
+## 可能存在的问题
 
 - 预训练数据/任务构造
 - 微调数据构造
