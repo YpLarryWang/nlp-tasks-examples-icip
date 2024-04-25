@@ -29,6 +29,10 @@ pip install trl
 ```bash
 pip install tensorboard
 ```
+使用`tensorboard`的方法如下：
+```bash
+tensorboard --logdir "name/of/logdir"
+```
 
 # 设置多卡并行环境
 ```bash
@@ -36,9 +40,8 @@ accelerate config
 ```
 
 # 多卡训练
-```bash
-accelerate launch --num_processes 2 seq2seq_translation_finetuning.py --config config_atm_trans_mengzi-t5-base.yaml
-```
+见`llm-sft/run_qwen_no_sfttrainer.bash`。
+
 参考资料如下（在右侧栏点击“特定GPU选择”）
 - https://huggingface.co/docs/transformers/main/zh/main_classes/trainer
 
