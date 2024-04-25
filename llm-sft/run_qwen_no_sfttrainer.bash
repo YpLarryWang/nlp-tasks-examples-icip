@@ -1,0 +1,12 @@
+accelerate launch --num_processes 2 llm-sft/sft_qwen_no_sfttrainer.py \
+    --dataset_name_or_path llm-sft/data/ruozhiba.jsonl \
+    --pretrained_model_name_or_path "/media/disk2/public/Qwen1.5-0.5B-Chat" \
+    --output_dir="llm-sft/output/ruozhiba" \
+    --padding_side="left" \
+    --per_device_train_batch_size=1 \
+    --gradient_accumulation_steps=1 \
+    --learning_rate=1e-4 \
+    --num_train_epochs=3 \
+    --logging_steps=10 \
+    --save_strategy="epoch" \
+    --save_total_limit=1 \
