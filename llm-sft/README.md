@@ -8,8 +8,8 @@
 
 # 数据来源
 
-- m-a-p/COIG-CQIA: https://huggingface.co/datasets/m-a-p/COIG-CQIA，在`ruozhiba`目录下
-- 论文：COIG-CQIA: Quality is All You Need for Chinese Instruction Fine-tuning
+- `m-a-p/COIG-CQIA`: 可以[从huggingface上下载](https://huggingface.co/datasets/m-a-p/COIG-CQIA)（在`ruozhiba`目录下）
+- 对应论文：[COIG-CQIA: Quality is All You Need for Chinese Instruction Fine-tuning](https://arxiv.org/abs/2403.18058)
 
 # 安装库
 ## 必须安装的库
