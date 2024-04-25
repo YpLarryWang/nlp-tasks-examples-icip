@@ -8,7 +8,7 @@
 - 基于HuggingFace的transformers库使用BERT进行imdb情感分类
 - 基于HuggingFace的transformers库使用bart/t5进行文白机器翻译
 - 大语言模型API调用
-- 基于HuggingFace的transformers库使用qwen模型系列进行监督微调
+- 基于HuggingFace的transformers库在弱智吧数据集上对qwen系列模型进行监督微调（SFT）
 
 ## 2023年
 

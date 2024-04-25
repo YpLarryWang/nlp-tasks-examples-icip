@@ -11,14 +11,15 @@
 
 ## 安装库
 ### 必须安装的库
-```
+```bash
+pip install torch
 pip install transformers
 pip install accelerate
 pip install datasets
 ```
 
 ### 可选的库
-```
+```bash
 pip install evaluate
 ```
 
