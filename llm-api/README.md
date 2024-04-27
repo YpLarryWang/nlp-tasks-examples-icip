@@ -20,3 +20,6 @@ sh llm-api/run.sh
 
 其他资料：
 - 视频：[OpenAI开发者大会：如何最大限度优化大型语言模型的表现](https://www.youtube.com/watch?v=ahnGLM-RC1Y)
+
+组内提醒：
+- `0418`版本只能通过官方接口调用；`0427`可以通过跳板机调用，但暂不支持在请求中添加metadat.
