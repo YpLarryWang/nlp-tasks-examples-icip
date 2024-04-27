@@ -326,7 +326,6 @@ class APIRequest:
                 response = json.loads(await response.text())
                 
                 if "username" in response.get('request', {}):
-                    # print(type(response['request']))
                     # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                     response_content = json.loads(response['request'])
                     response_content.pop('username')
@@ -373,22 +372,15 @@ class APIRequest:
                     f"Request {self.request_json} failed after all attempts. Saving errors: {self.result}"
                 )
                 if "username" in self.request_json:
-                    
+                    # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                     self.request_json.pop('username')
-                    
                     credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
                     
-                    # 如果存在 metadata，则使用 response 和 metadata 构建元组
                     if self.metadata:
                         data = (self.request_json, [str(e) for e in self.result], self.metadata)
                     else:
-                        # 否则，仅使用 response 构建元组
                         data = (self.request_json, [str(e) for e in self.result],)
                 else:
-                    
-                    print(response)
-                    
-                    # 如果不存在 'username'，则始终包含 request_json
                     if self.metadata:
                         data = (self.request_json, response, self.metadata)
                     else:
@@ -398,20 +390,16 @@ class APIRequest:
                 status_tracker.num_tasks_failed += 1
         else:
             if "username" in self.request_json:
-                
+                # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                 self.request_json.pop('username')
-                
                 credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
                 response = json.loads(response['raw'])
                 
-                # 如果存在 metadata，则使用 response 和 metadata 构建元组
                 if self.metadata:
                     data = (self.request_json, response, self.metadata, credit_info)
                 else:
-                    # 否则，仅使用 response 构建元组
                     data = (self.request_json, response, credit_info)
             else:
-                # 如果不存在 'username'，则始终包含 request_json
                 if self.metadata:
                     data = (self.request_json, response, self.metadata)
                 else:
