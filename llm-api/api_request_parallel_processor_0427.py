@@ -374,6 +374,7 @@ class APIRequest:
                 if "username" in self.request_json:
                     # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                     self.request_json.pop('username')
+                    self.request_json = json.loads(self.request_json['request'])
                     credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
                     
                     if self.metadata:
@@ -392,6 +393,7 @@ class APIRequest:
             if "username" in self.request_json:
                 # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                 self.request_json.pop('username')
+                self.request_json = json.loads(self.request_json['request'])
                 credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
                 response = json.loads(response['raw'])
                 
