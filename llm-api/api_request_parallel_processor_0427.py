@@ -325,7 +325,7 @@ class APIRequest:
                 # 可以兼容各种API的返回结果
                 response = json.loads(await response.text())
                 
-                if "username" in response['request']:
+                if "username" in response.get('request', {}):
                     # print(type(response['request']))
                     # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                     response_content = json.loads(response['request'])
@@ -373,13 +373,21 @@ class APIRequest:
                     f"Request {self.request_json} failed after all attempts. Saving errors: {self.result}"
                 )
                 if "username" in self.request_json:
+                    
+                    self.request_json.pop('username')
+                    
+                    credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
+                    
                     # 如果存在 metadata，则使用 response 和 metadata 构建元组
                     if self.metadata:
-                        data = (response, self.metadata)
+                        data = (self.request_json, [str(e) for e in self.result], self.metadata)
                     else:
                         # 否则，仅使用 response 构建元组
-                        data = (response,)
+                        data = (self.request_json, [str(e) for e in self.result],)
                 else:
+                    
+                    print(response)
+                    
                     # 如果不存在 'username'，则始终包含 request_json
                     if self.metadata:
                         data = (self.request_json, response, self.metadata)
@@ -391,15 +399,17 @@ class APIRequest:
         else:
             if "username" in self.request_json:
                 
+                self.request_json.pop('username')
+                
                 credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
-                response = json.loads(json.loads(response['request'])['request'])
+                response = json.loads(response['raw'])
                 
                 # 如果存在 metadata，则使用 response 和 metadata 构建元组
                 if self.metadata:
-                    data = (response, self.metadata, credit_info)
+                    data = (self.request_json, response, self.metadata, credit_info)
                 else:
                     # 否则，仅使用 response 构建元组
-                    data = (response, credit_info)
+                    data = (self.request_json, response, credit_info)
             else:
                 # 如果不存在 'username'，则始终包含 request_json
                 if self.metadata:
@@ -475,7 +485,6 @@ def num_tokens_consumed_from_request(
         
         elif api_endpoint in ["gpt", "claude"]:
             num_tokens = 0
-            print(request_json["request"])
             for message in json.loads(request_json["request"])["messages"]:
                 num_tokens += 4  # every message follows <im_start>{role/name}\n{content}<im_end>\n
                 for key, value in message.items():
