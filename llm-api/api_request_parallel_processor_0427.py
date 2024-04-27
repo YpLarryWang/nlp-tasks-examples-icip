@@ -410,9 +410,6 @@ class APIRequest:
             logging.debug(f"Request {self.task_id} saved to {save_filepath}")
 
 
-# functions
-
-
 def api_endpoint_from_url(request_url):
     """Extract the API endpoint from the request URL."""
     if "api.openai.com" in request_url:
