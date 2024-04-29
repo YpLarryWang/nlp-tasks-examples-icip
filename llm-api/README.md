@@ -7,6 +7,7 @@
 目前，该脚本支持的API服务有：
 - OpenAI: chat completion
 - Aliyun: text generation
+- DeepInfra: text generation
   
 后续，我们将持续更新，使该脚本能够支持更多API服务，包括但不限于，MistraAI、Microsoft Azure、Google Cloud、ZhipuAI、无问芯穹等。欢迎同学们提交PR，和我们一起维护这个脚本。
 
