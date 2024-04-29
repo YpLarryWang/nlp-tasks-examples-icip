@@ -415,13 +415,18 @@ class APIRequest:
 def api_endpoint_from_url(request_url):
     """Extract the API endpoint from the request URL."""
     if "api.openai.com" in request_url:
-        # 处理OpenAI API的URL
+        # 处理OpenAI API的URL: https://api.openai.com/v1/chat/completions
         match = re.search(r"^https://[^/]+/v\d+/(.+)$", request_url)
         if match:
             return match.group(1)
     elif "dashscope.aliyuncs.com" in request_url:
         # 处理新API的URL
         match = re.search(r"^https://[^/]+/api/v1/services/aigc/([^?]+)", request_url)
+        if match:
+            return match.group(1)
+    elif "api.deepinfra.com" in request_url:
+        # 使用DeepInfra的OpenAI式API: https://api.deepinfra.com/v1/openai/chat/completions
+        match = re.search(r"^https://[^/]+/v1/openai/([^?]+)", request_url)
         if match:
             return match.group(1)
     else:
