@@ -403,9 +403,6 @@ class APIRequest:
         else:
             if "username" in self.request_json:
                 
-                print(self.request_json)
-                print(response)
-                
                 # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                 self.request_json.pop('username')
                 self.request_json = json.loads(self.request_json['request'])
@@ -437,6 +434,11 @@ def api_endpoint_from_url(request_url):
     elif "dashscope.aliyuncs.com" in request_url:
         # 处理新API的URL
         match = re.search(r"^https://[^/]+/api/v1/services/aigc/([^?]+)", request_url)
+        if match:
+            return match.group(1)
+    elif "api.deepinfra.com" in request_url:
+        # 使用DeepInfra的OpenAI式API: https://api.deepinfra.com/v1/openai/chat/completions
+        match = re.search(r"^https://[^/]+/v1/openai/([^?]+)", request_url)
         if match:
             return match.group(1)
     else:

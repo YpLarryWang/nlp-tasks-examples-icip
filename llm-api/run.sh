@@ -22,7 +22,7 @@ deepinfra_save_file="llm-api/results/mistral8x22b_example_deepinfra.jsonl"
 deepinfra_url="https://api.deepinfra.com/v1/openai/chat/completions"
 my_deepinfra_api_key="your_deepinfra_api_key_here"
 
-python llm-api/api_request_parallel_processor_0427.py \
+python llm-api/api_request_parallel_processor_0504.py \
 --requests_filepath "${deepinfra_request_file}" \
 --save_filepath "${deepinfra_save_file}" \
 --request_url "${deepinfra_url}" \
