@@ -118,7 +118,6 @@ async def process_api_requests_from_file(
     token_encoding_name: str,
     max_attempts: int,
     logging_level: int,
-    bnu_username: str = None,
 ):
     """Processes API requests in parallel, throttling to stay under rate limits."""
     # constants
@@ -181,9 +180,9 @@ async def process_api_requests_from_file(
                             custom_metadata = request_json.pop("metadata", None),
                             
                             # 如果是BNU的API，则需要添加username字段
-                            if bnu_username:
+                            if 'bnu' in api_key.lower():
                                 request_json = {
-                                    "username": bnu_username,
+                                    "username": api_key,
                                     "request": json.dumps(request_json)
                                 }
                             
@@ -568,7 +567,6 @@ if __name__ == "__main__":
     parser.add_argument("--save_filepath", default=None)
     parser.add_argument("--request_url", default="https://api.openai.com/v1/embeddings")
     parser.add_argument("--api_key", default=os.getenv("OPENAI_API_KEY"))
-    parser.add_argument("--bnu_username", default=os.getenv("BNU_USERNAME"))
     parser.add_argument("--max_requests_per_minute", type=int, default=3_000 * 0.5)
     parser.add_argument("--max_tokens_per_minute", type=int, default=250_000 * 0.5)
     parser.add_argument("--seconds_to_sleep_each_loop", type=float, default=0.001)
@@ -593,7 +591,6 @@ if __name__ == "__main__":
             token_encoding_name=args.token_encoding_name,
             max_attempts=int(args.max_attempts),
             logging_level=int(args.logging_level),
-            bnu_username=args.bnu_username,
         )
     )
 
