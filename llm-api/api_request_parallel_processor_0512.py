@@ -385,14 +385,21 @@ class APIRequest:
                     # 去掉BNU的API返回结果（dict）中去掉username字段，保护隐私
                     self.request_json.pop('username')
                     self.request_json = json.loads(self.request_json['request'])
-                    credit_info = {key: response[key] for key in ['credits_consumed', 'credits_total']}
                     
                     if self.metadata:
+                        if isinstance(self.metadata, tuple):
+                            self.metadata = self.metadata[0]
+                        elif isinstance(self.metadata, list):
+                            self.metadata = self.metadata[0]
                         data = (self.request_json, [str(e) for e in self.result], self.metadata)
                     else:
                         data = (self.request_json, [str(e) for e in self.result],)
                 else:
                     if self.metadata:
+                        if isinstance(self.metadata, tuple):
+                            self.metadata = self.metadata[0]
+                        elif isinstance(self.metadata, list):
+                            self.metadata = self.metadata[0]
                         data = (self.request_json, response, self.metadata)
                     else:
                         data = (self.request_json, response)
@@ -409,11 +416,19 @@ class APIRequest:
                 response = json.loads(response['raw'])
                 
                 if self.metadata:
+                    if isinstance(self.metadata, tuple):
+                        self.metadata = self.metadata[0]
+                    elif isinstance(self.metadata, list):
+                        self.metadata = self.metadata[0]
                     data = (self.request_json, response, self.metadata, credit_info)
                 else:
                     data = (self.request_json, response, credit_info)
             else:
                 if self.metadata:
+                    if isinstance(self.metadata, tuple):
+                        self.metadata = self.metadata[0]
+                    elif isinstance(self.metadata, list):
+                        self.metadata = self.metadata[0]
                     data = (self.request_json, response, self.metadata)
                 else:
                     data = (self.request_json, response)
@@ -438,6 +453,11 @@ def api_endpoint_from_url(request_url):
     elif "api.deepinfra.com" in request_url:
         # 使用DeepInfra的OpenAI式API: https://api.deepinfra.com/v1/openai/chat/completions
         match = re.search(r"^https://[^/]+/v1/openai/([^?]+)", request_url)
+        if match:
+            return match.group(1)
+    elif "api.deepseek.com" in request_url:
+        # 使用DeepSeek的OpenAI式API: https://api.deepseek.com/chat/completions
+        match = re.search(r"^https://[^/]+/(.+)$", request_url)
         if match:
             return match.group(1)
     else:

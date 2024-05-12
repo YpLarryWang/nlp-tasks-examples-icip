@@ -4,6 +4,7 @@
 # bnu_save_file="llm-api/results/claude_example_bnu.jsonl"
 bnu_request_file="llm-api/requests/openai_example_bnu.jsonl"
 bnu_save_file="llm-api/results/openai_example_bnu.jsonl"
+
 bnu_url="http://ICIP_IP_ADDRESS:PORT/claude"
 bnu_api_key="your_bnu_username_here"
 
