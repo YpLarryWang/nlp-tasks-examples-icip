@@ -28,7 +28,7 @@ deepseek_save_file="llm-api/results/deepseek_chat_example.jsonl"
 deepseek_url="https://api.deepseek.com/chat/completions"
 my_deepseek_api_key="your_deepseek_api_key_here"
 
-python llm-api/api_request_parallel_processor_0504.py \
+python llm-api/api_request_parallel_processor_0512.py \
 --requests_filepath "${deepinfra_request_file}" \
 --save_filepath "${deepinfra_save_file}" \
 --request_url "${deepinfra_url}" \

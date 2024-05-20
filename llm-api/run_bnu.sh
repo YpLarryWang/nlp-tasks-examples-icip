@@ -1,14 +1,16 @@
 #!/bin/zsh
 
-# bnu_request_file="llm-api/requests/claude_example_bnu.jsonl"
-# bnu_save_file="llm-api/results/claude_example_bnu.jsonl"
 bnu_request_file="llm-api/requests/openai_example_bnu.jsonl"
 bnu_save_file="llm-api/results/openai_example_bnu.jsonl"
+# bnu_request_file="llm-api/requests/claude_example_bnu.jsonl"
+# bnu_save_file="llm-api/results/claude_example_bnu.jsonl"
 
-bnu_url="http://ICIP_IP_ADDRESS:PORT/claude"
+bnu_url="http://ICIP_IP_ADDRESS:PORT/gpt"
+# bnu_url="http://ICIP_IP_ADDRESS:PORT/claude"
+
 bnu_api_key="your_bnu_username_here"
 
-python llm-api/api_request_parallel_processor_0504.py \
+python llm-api/api_request_parallel_processor_0512.py \
 --requests_filepath "${bnu_request_file}" \
 --save_filepath "${bnu_save_file}" \
 --request_url "${bnu_url}" \
