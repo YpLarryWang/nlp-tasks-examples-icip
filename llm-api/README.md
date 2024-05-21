@@ -26,7 +26,24 @@ pip install tiktoken
 sh llm-api/run.sh
 ```
 
-目前的 `run.sh` 写法是方便 MacOS 的，在[shebang](https://zh.wikipedia.org/wiki/Shebang)行指明了 `zsh` 作为命令行解释器。如果你要在linux机器上使用该命令行脚本，一般需要修改shebang行（首行）为`#!/bin/bash`。如果你要在windows机器上使用该命令行脚本，可以先安装`git`或者`WSL`并修改shebang行为`#!/bin/bash`，参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
+目前的 `run.sh` 写法是方便 MacOS 的，在[shebang](https://zh.wikipedia.org/wiki/Shebang)行（`run.sh`的首行）指明了 `zsh` 作为命令行解释器。如果你要在linux机器上使用该命令行脚本，一般需要修改 Shebang 行为`#!/bin/bash`。如果你要在windows机器上使用该命令行脚本，可以先安装`git`或者`WSL`并修改 Shebang 行为`#!/bin/bash`，参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
+
+"Shebang" 行是一种特殊的注释行，位于脚本文件的开头，用来指定解释器的路径。它的名称来源于它的特殊格式：开头是 #!，后面跟着解释器的路径。例如：
+```sh
+#!/bin/bash
+```
+
+这个行告诉操作系统用 `/bin/bash` 来执行这个脚本。之所以称为 "Shebang"，是因为 `#!` 符号的发音：
+
+- `#` 被称为 "hash" 或 "sharp"。
+- `!` 被称为 "bang"。
+
+因此，组合起来就是 "shebang"。
+
+当你在命令行中运行一个脚本时，操作系统会读取文件的第一行。如果第一行以 `#!` 开头，操作系统会根据后面的路径调用相应的解释器来执行脚本，而不是使用默认的 shell。Shebang 行的格式通常是 `#!/path/to/interpreter`，例如：
+    - `#!/bin/bash`：使用 Bash 解释器。
+    - `#!/usr/bin/env python3`：使用当前环境中的 Python 3 解释器。
+    - `#!/bin/zsh`：使用 Zsh 解释器。
 
 ## 组内用法
 - ~~`0418`版本只能通过官方接口调用；`0427`可以通过跳板机调用，但暂不支持在请求中添加metadat.~~
