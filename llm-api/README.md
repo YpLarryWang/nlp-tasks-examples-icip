@@ -20,7 +20,7 @@
 sh llm-api/run.sh
 ```
 
-这里，`run.sh`是一个命令行脚本（command-line scripts）。命令行脚本是一种由命令行解释器（如bash或zsh）执行的脚本文件，用于自动化执行一系列命令或操作。如果你要在linux机器上使用该命令行脚本，一般需要修改[shebang](https://zh.wikipedia.org/wiki/Shebang)为`#!/bin/bash`。
+这里，`run.sh`是一个命令行脚本（command-line script）。命令行脚本是一种由命令行解释器（如 `bash` 或 `zsh`）执行的脚本文件，用于自动化执行一系列命令或操作。目前的 `run.sh` 写法是方便 MacOS 的，在[shebang](https://zh.wikipedia.org/wiki/Shebang)行指明了 `zsh` 作为命令行解释器。如果你要在linux机器上使用该命令行脚本，一般需要修改shebang行（首行）为`#!/bin/bash`。如果你要在windows机器上使用该命令行脚本，可以先下载`git`或者`WSL`，参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
 
 ## 组内用法
 - ~~`0418`版本只能通过官方接口调用；`0427`可以通过跳板机调用，但暂不支持在请求中添加metadat.~~
