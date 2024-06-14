@@ -1,9 +1,13 @@
 #!/bin/zsh
 
-openai_request_file="llm-api/requests/openai_chat_example.jsonl"
-openai_save_file="llm-api/results/openai_chat_example.jsonl"
+openai_chat_request_file="llm-api/requests/openai_chat_example.jsonl"
+openai_chat_save_file="llm-api/results/openai_chat_example.jsonl"
 
-openai_url="https://api.openai.com/v1/chat/completions"
+openai_embedding_request_file="llm-api/requests/openai_embedding_example.jsonl"
+openai_embedding_save_file="llm-api/results/openai_embedding_example.jsonl"
+
+openai_chat_url="https://api.openai.com/v1/chat/completions"
+openai_embedding_url="https://api.openai.com/v1/embeddings"
 my_openai_api_key="your_openai_api_key_here"
 
 aliyun_request_file="llm-api/requests/qwen_chat_example.jsonl"

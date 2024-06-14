@@ -1,0 +1,2 @@
+{"model": "text-embedding-3-small", "input": "I love natural language processing.", "metadata": {"row_id": 1}}
+{"model": "text-embedding-3-small", "input": "I love deep learning.", "metadata": {"row_id": 2}}
