@@ -4,7 +4,7 @@
 
 在使用 OpenAI 等大模型厂商提供的 API 服务来调用大型语言模型时，可以通过异步（或非阻塞）方式发送请求。这样可以避免 CPU 花费大量时间等待网络反馈，而是在等待响应的同时处理其他需要 CPU 资源的任务，例如发送其他请求和写入已接收到的反馈结果，从而缩短整个程序的运行时间。
 
-本项目通过命令行脚本命令行脚本（command-line script）`run.sh`来运行`api_request_parallel_processor_0512.py`。命令行脚本是一种由命令行解释器（如 `bash` 或 `zsh`）执行的脚本文件，用于自动化执行一系列命令或操作。在本项目中，只需要将URL和密钥修改为特定的值，且注意将输入的数据的格式调整为目标服务要求的格式即可成功调用API。运行前，你必须安装两个python包：
+本项目通过命令行脚本命令行脚本（command-line script）`run.sh`来运行`api_request_parallel_processor.py`。命令行脚本是一种由命令行解释器（如 `bash` 或 `zsh`）执行的脚本文件，用于自动化执行一系列命令或操作。在本项目中，只需要将URL和密钥修改为特定的值，且注意将输入的数据的格式调整为目标服务要求的格式即可成功调用API。运行前，你必须安装两个python包：
 
 ```bash
 pip install aiohttp
@@ -27,7 +27,7 @@ pip install tiktoken
 sh llm-api/run.sh
 ```
 
-目前的 `run.sh` 写法是针对 MacOS 系统的，[shebang](https://zh.wikipedia.org/wiki/Shebang)行（`run.sh`脚本的第一行）指明了使用 `zsh` 作为命令行解释器。如果你希望在 Unix/Linux 系统上使用该命令行脚本，需要修改 Shebang 行为`#!/bin/bash`。如果你要在 Windows 机器上使用该命令行脚本，可以先安装`git`或者`WSL`并修改 Shebang 行为`#!/bin/bash`。在 Windows 上使用命令行脚本的具体细节可参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
+目前的 `run.sh` 写法是针对 MacOS 系统的，[shebang](https://zh.wikipedia.org/wiki/Shebang)行（`run.sh`脚本的第一行）指明了使用 `zsh` 作为命令行解释器。如果你希望在 Unix/Linux 系统上使用该命令行脚本，需要修改 Shebang 行为`#!/bin/bash`。如果你要在 Windows 系统上使用该命令行脚本，可以先安装`git`或者`WSL`并修改 Shebang 行为`#!/bin/bash`，即要求使用`bash`作为命令行解释器。在 Windows 上使用命令行脚本的具体细节可参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
 
 "Shebang" 行是一种特殊的注释行，位于脚本文件的开头，用来指定解释器的路径。它具有一种特殊格式：开头是 #!，后面跟着解释器的路径。例如：
 ```sh
@@ -48,7 +48,11 @@ sh llm-api/run.sh
 
 ## 组内用法
 
-欲使用实验室 API 接口，请联系胡老师。之后老师会发给大家一个`.ipynb`文件，将其中的`bnu_api_key`作为`api_key`参数传入即可。其他和**常规用法**里的操作相同。
+欲使用实验室 API 接口，请联系胡老师。通过后老师会给大家发送一个`.ipynb`文件，将其中的`bnu_api_key`作为`api_key`参数传入即可。其他和**常规用法**里的操作相同。具体命令如下：
+
+```bash
+zsh llm-api/run_bnu.sh
+```
 
 ## 更新记录
 
@@ -56,10 +60,6 @@ sh llm-api/run.sh
 - 2024.5.4更新：可以使用和**常规用法**中的例子相同的数据格式走组内的跳板机调用渠道，metadata也已支持。只需将大家收到的`.ipynb`文件中的`bnu_api_key`作为`api_key`参数传入即可.
 - 2024.5.12更新：进一步修正了组内渠道请求错误时总是报出`KeyError`的问题，现在会在重试指定次数后记录错误信息并正常退出.
 - 2024.12.22更新：阿里云已经支持OpenAI格式调用，修改了对应规则和请求样例.
-
-```bash
-zsh llm-api/run_bnu.sh
-```
 
 ## 参考资料
 
