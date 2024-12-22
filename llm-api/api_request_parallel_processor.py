@@ -446,8 +446,8 @@ def api_endpoint_from_url(request_url):
         if match:
             return match.group(1)
     elif "dashscope.aliyuncs.com" in request_url:
-        # 处理新API的URL
-        match = re.search(r"^https://[^/]+/api/v1/services/aigc/([^?]+)", request_url)
+        # 处理Aliyun API的URL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+        match = re.search(r"^https://dashscope.aliyuncs.com/compatible-mode/v\d+/(.+)$", request_url)
         if match:
             return match.group(1)
     elif "api.deepinfra.com" in request_url:
