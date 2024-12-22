@@ -27,7 +27,7 @@ pip install tiktoken
 sh llm-api/run.sh
 ```
 
-目前的 `run.sh` 写法是针对 MacOS 系统的，[shebang](https://zh.wikipedia.org/wiki/Shebang)行（`run.sh`脚本的第一行）指明了使用 `zsh` 作为命令行解释器。如果你希望在 Unix/Linux 系统上使用该命令行脚本，需要修改 Shebang 行为`#!/bin/bash`。如果你要在 Windows 系统上使用该命令行脚本，可以先安装`git`或者`WSL`并修改 Shebang 行为`#!/bin/bash`，即要求使用`bash`作为命令行解释器。在 Windows 上使用命令行脚本的具体细节可参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
+目前的 `run.sh` 写法是针对 MacOS 系统的，[shebang](https://zh.wikipedia.org/wiki/Shebang)行（`run.sh`脚本的第一行）指明了使用 `zsh` 作为命令行解释器。如果你希望在 Unix/Linux 系统上使用该命令行脚本，需要修改 Shebang 行为`#!/bin/bash`，即要求使用`bash`作为命令行解释器。如果你要在 Windows 系统上使用该命令行脚本，可以先安装`git`或者`WSL`并修改 Shebang 行为`#!/bin/bash`。在 Windows 上使用命令行脚本的具体细节可参考[这个帖子](https://stackoverflow.com/questions/6413377/is-there-a-way-to-run-bash-scripts-on-windows).
 
 "Shebang" 行是一种特殊的注释行，位于脚本文件的开头，用来指定解释器的路径。它具有一种特殊格式：开头是 #!，后面跟着解释器的路径。例如：
 ```sh
