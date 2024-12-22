@@ -15,7 +15,7 @@ pip install tiktoken
 
 目前，该脚本支持的API服务有：
 - OpenAI: chat completion
-- Aliyun: text generation
+- Aliyun: ~~text generation~~ 已更新为 chat completion
 - DeepInfra: text generation
 - DeepSeek: chat completion
   
