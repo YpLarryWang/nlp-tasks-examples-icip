@@ -11,7 +11,7 @@ pip install aiohttp
 pip install tiktoken
 ```
 
-脚本`api_request_parallel_processor_0512.py`修改自OpenAI的[示例](https://github.com/openai/openai-cookbook/blob/main/examples/api_request_parallel_processor.py)，但增加了对一些其他API服务的支持，同时添加了参数`seconds_to_sleep_each_loop`，用于控制每个API请求之间的时间间隔。OpenAI的API服务没有秒级的调用频率限制（使用时可设为0.01或忽略），但其他API服务有秒级的调用频率限制，因此需要设置该参数（比如Aliyun就有秒级限制，虽然没有在官网明说，使用Qwen时需要摸索尝试一下，先设置0.15-0.5为宜）。
+本目录下的脚本`api_request_parallel_processor.py`修改自OpenAI的[示例](https://github.com/openai/openai-cookbook/blob/main/examples/api_request_parallel_processor.py)，但增加了对一些其他 API 服务的支持，同时添加了参数`seconds_to_sleep_each_loop`，用于控制每个 API 请求之间的时间间隔。OpenAI 的 API 服务没有秒级的调用频率限制（使用时可设为0.01或忽略），但其他 API 服务可能存在秒级的调用频率限制，因此需要设置该参数（比如 Aliyun 就有秒级限制，虽然没有在官网明说，使用 Qwen 系列时需要摸索尝试一下，先设置0.1-0.3为宜）。
 
 目前，该脚本支持的API服务有：
 - OpenAI: chat completion
