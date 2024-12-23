@@ -42,9 +42,10 @@ sh llm-api/run.sh
 二者组合起来就是 "shebang"。
 
 当你在命令行中运行一个脚本时，操作系统会读取文件的第一行。如果第一行以 `#!` 开头，操作系统会根据后面的路径调用相应的解释器来执行脚本，而不是使用默认的 shell。Shebang 行的格式通常是 `#!/path/to/interpreter`，例如：
-    - `#!/bin/bash`：使用 Bash 解释器。
-    - `#!/usr/bin/env python3`：使用当前环境中的 Python 3 解释器。
-    - `#!/bin/zsh`：使用 Zsh 解释器。
+    
+- `#!/bin/bash`：使用 Bash 解释器。
+- `#!/usr/bin/env python3`：使用当前环境中的 Python 3 解释器。
+- `#!/bin/zsh`：使用 Zsh 解释器。
 
 ## 组内用法
 
