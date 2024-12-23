@@ -446,7 +446,7 @@ def api_endpoint_from_url(request_url):
         if match:
             return match.group(1)
     elif "dashscope.aliyuncs.com" in request_url:
-        # 处理Aliyun API的URL: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+        # 处理Aliyun API的URL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
         match = re.search(r"^https://dashscope.aliyuncs.com/compatible-mode/v\d+/(.+)$", request_url)
         if match:
             return match.group(1)
