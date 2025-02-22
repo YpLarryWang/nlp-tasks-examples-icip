@@ -176,8 +176,21 @@ async def process_api_requests_from_file(
                         try:
                             # get new request
                             request_json = json.loads(next(requests))
-                            # 提前取出metadata，因为如果用BNU的API后面就多包裹了一层，不方便处理
-                            custom_metadata = request_json.pop("metadata", None),
+                            print(request_json)
+                            
+                            # 如果request_json是列表，需要特殊处理
+                            if isinstance(request_json, list):
+                                # metadata总是在倒数第三个位置
+                                if len(request_json) >= 3:
+                                    custom_metadata = request_json[-3]
+                                    # 第一个元素是实际的请求内容
+                                    request_json = request_json[0]
+                                else:
+                                    custom_metadata = None
+                                    request_json = request_json[0]
+                            else:
+                                # 原来的处理方式（针对字典格式）
+                                custom_metadata = request_json.pop("metadata", None)
                             
                             # 如果是BNU的API，则需要添加username字段
                             if 'bnu' in api_key.lower():
