@@ -176,7 +176,6 @@ async def process_api_requests_from_file(
                         try:
                             # get new request
                             request_json = json.loads(next(requests))
-                            print(request_json)
                             
                             # 如果request_json是列表，需要特殊处理
                             if isinstance(request_json, list):
@@ -503,7 +502,6 @@ def num_tokens_consumed_from_request(
     # for bnu api, we need to extract model from request_json to distinguish completions and embeddings
     if api_endpoint.lower() in ['gpt', 'claude']:
         request_json = json.loads(request_json["request"])
-        print(request_json)
         model_name = request_json.get("model", "")
         if 'embedding' in model_name:
             api_endpoint = 'embeddings'
