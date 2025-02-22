@@ -446,8 +446,8 @@ def api_endpoint_from_url(request_url):
         if match:
             return match.group(1)
     elif "dashscope.aliyuncs.com" in request_url:
-        # 处理新API的URL
-        match = re.search(r"^https://[^/]+/api/v1/services/aigc/([^?]+)", request_url)
+        # 处理Aliyun API的URL: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
+        match = re.search(r"^https://dashscope.aliyuncs.com/compatible-mode/v\d+/(.+)$", request_url)
         if match:
             return match.group(1)
     elif "api.deepinfra.com" in request_url:
@@ -487,8 +487,18 @@ def num_tokens_consumed_from_request(
 ):
     """Count the number of tokens in the request. Only supports completion and embedding requests."""
     encoding = tiktoken.get_encoding(token_encoding_name)
+    # for bnu api, we need to extract model from request_json to distinguish completions and embeddings
+    if api_endpoint.lower() in ['gpt', 'claude']:
+        request_json = json.loads(request_json["request"])
+        print(request_json)
+        model_name = request_json.get("model", "")
+        if 'embedding' in model_name:
+            api_endpoint = 'embeddings'
+        else:
+            api_endpoint = 'chat/completions'
+    
     # if completions request, tokens = prompt + n * max_tokens
-    if api_endpoint.endswith("completions") or api_endpoint in ["gpt", "claude"]:
+    if api_endpoint.endswith("completions"):
         max_tokens = request_json.get("max_tokens", 15)
         n = request_json.get("n", 1)
         completion_tokens = n * max_tokens
@@ -497,18 +507,6 @@ def num_tokens_consumed_from_request(
         if api_endpoint.startswith("chat/"):
             num_tokens = 0
             for message in request_json["messages"]:
-                num_tokens += 4  # every message follows <im_start>{role/name}\n{content}<im_end>\n
-                for key, value in message.items():
-                    num_tokens += len(encoding.encode(value))
-                    if key == "name":  # if there's a name, the role is omitted
-                        num_tokens -= 1  # role is always required and always 1 token
-            num_tokens += 2  # every reply is primed with <im_start>assistant
-            return num_tokens + completion_tokens
-        # normal completions
-        
-        elif api_endpoint in ["gpt", "claude"]:
-            num_tokens = 0
-            for message in json.loads(request_json["request"])["messages"]:
                 num_tokens += 4  # every message follows <im_start>{role/name}\n{content}<im_end>\n
                 for key, value in message.items():
                     num_tokens += len(encoding.encode(value))
