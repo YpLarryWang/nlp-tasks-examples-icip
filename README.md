@@ -2,16 +2,15 @@
 
 本仓库包含北京师范大学数字人文系开设的自然语言处理课程的示例代码，也包括Python语言程序设计与数据分析课程的部分示例代码。
 
-## 历年代码实例大纲
-
-### 2025年
+## 2025年示例代码
 
 - [大语言模型API调用](llm-api/)
 - PyTorch教程
   - [常见问题与解答](torch-memo/)
-  - [PyTorch Tutorial (斯坦福CS224N原版notebook)](torch-memo/SP_24_CS224N_PyTorch_Tutorial.ipynb)
-  - [PyTorch Tutorial (CS224N+备注版)](notebook/Revised_SP_24_CS224N_PyTorch_Tutorial.ipynb)
+  - Stanford CS224N PyTorch Tutorial: [[原版]](torch-memo/SP_24_CS224N_PyTorch_Tutorial.ipynb),[[备注版]](notebook/Revised_SP_24_CS224N_PyTorch_Tutorial.ipynb)
   - [使用MLP判断6位2进制数的对称性](notebook/detect_symmetry_mlp.ipynb)
+
+## 往年示例代码
 
 ### 2024年
 
