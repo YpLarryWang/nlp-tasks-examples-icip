@@ -5,10 +5,11 @@
 ## 2025年
 
 - [大语言模型API调用](llm-api/)
-- [PyTorch备忘录](torch-memo/)
-- [PyTorch Tutorial (斯坦福CS224N原版notebook)](torch-memo/SP_24_CS224N_PyTorch_Tutorial.ipynb)
-- [PyTorch Tutorial (CS224N+备注版)](notebook/Revised_SP_24_CS224N_PyTorch_Tutorial.ipynb)
-- [使用MLP判断6位2进制数的对称性](notebook/detect_symmetry_mlp.ipynb)
+- PyTorch教程
+  - [常见问题与解答](torch-memo/)
+  - [PyTorch Tutorial (斯坦福CS224N原版notebook)](torch-memo/SP_24_CS224N_PyTorch_Tutorial.ipynb)
+  - [PyTorch Tutorial (CS224N+备注版)](notebook/Revised_SP_24_CS224N_PyTorch_Tutorial.ipynb)
+  - [使用MLP判断6位2进制数的对称性](notebook/detect_symmetry_mlp.ipynb)
 
 ## 2024年
 
