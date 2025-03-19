@@ -31,7 +31,7 @@
 
 **Q**: 在服务器上下载package或模型太慢，甚至下载失败，怎么办？
 
-**A**: 下载package可以尝试配置清华源，参考[官方指南](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)；模型下载建议优先考虑阿里云魔搭平台(ModelScope)，参考[官方指南](https://modelscope.cn/docs/models/download)。**此外，为了能够成功连接魔搭平台，需要在服务器上连接校园网，这一步非常重要，请参考兆基师兄开发的[连接助手](https://github.com/frederick-wang/bnu-cernet-cli)。按照说明在服务器上配置好就可以使用自己的校园网账号连接校园网了（注意连上以后就会用你的流量，所以用完记得登出）。**
+**A**: 下载package可以尝试配置清华源，参考[官方指南](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)；模型下载建议优先考虑阿里云魔搭平台(ModelScope)，参考[官方指南](https://modelscope.cn/docs/models/download)。 **为了能够成功连接魔搭平台，需要在服务器上连接校园网，这一步非常重要，请参考兆基师兄开发的[连接助手](https://github.com/frederick-wang/bnu-cernet-cli)。** 按照说明在服务器上配置好就可以使用自己的校园网账号连接校园网了（ *注意连上以后就会用你的流量，所以用完记得登出* ）。需注意，有些模型无法在魔搭上找到，这时只能先下载到自己电脑上然后上传服务器。
 
 **Q**: 使用conda安装PyTorch失败怎么办？
 
