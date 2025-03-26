@@ -91,3 +91,14 @@ zsh llm-api/run_bnu.sh
 
 **Q**: 程序返回文件中过的token数量和我用阿里云官方的token技术器计算的token数量不一样，这是为什么？\
 **A**: 这是因为本程序使用的是`tiktoken`对token进行计数，这个库仅适用于OpenAI系列模型，且需要根据不同的模型设定不同的参数（详情请见[这个链接](https://github.com/openai/tiktoken)）。对于其他模型，目前这个程序计算的token数仅仅只能作为一个参考帮助进行费用估算。
+
+## 使用API进行模型微调
+
+OpenAI支持对下面模型进行微调：
+- GPT-4o
+- GPT-4o-mini
+- GPT-3.5-turbo
+
+微调可以通过API，也可以通过Dashboard进行，具体可参考[官方指南](https://platform.openai.com/docs/guides/fine-tuning)。注意对于数据格式和价格计算请参考[OpenAI Cookbook](https://cookbook.openai.com/examples/chat_finetuning_data_prep)。
+
+截止2025年3月26日，OpenAI微调服务支持自定义Batch Size, Epochs和Learning Rate Multiplier(指一个隐藏的学习率的倍数)。此外还支持上传训练集以外的验证集，且不会对验证集进行收费。
