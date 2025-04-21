@@ -11,6 +11,7 @@
   - [使用MLP判断6位2进制数的对称性](notebook/detect_symmetry_mlp.ipynb)
   - [使用TextCNN进行IMDB电影评论情感分类](notebook/SP2025_TEXT_CLS_CNN.ipynb)
   - [使用LSTM进行IMDB电影评论情感分类](notebook/SP25_LSTM_huggingface.ipynb)
+  - [使用BERT进行IMDB电影评论情感分类并利用梯度积分做可解释性分析](notebook/SP25_imdb_bert_huggingface.ipynb)
 
 ## 往年示例代码
 
