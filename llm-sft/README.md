@@ -7,7 +7,7 @@
 
 ## 模型下载
 
-参考脚本`llm-sft/download_from_modelscope.py`使用`modelscope`下载模型。
+参考脚本`download_from_modelscope.py`使用`modelscope`下载模型。
 
 ## 环境配置
 
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## LoRA 微调
 
-本项目还提供了一个使用 LoRA 技术对 Qwen 模型进行微调的示例脚本。
+本项目提供了一个使用 LoRA 技术对 Qwen 模型进行微调的示例脚本。
 
 通过运行 `run_qwen_no_sft_trainer.bash` 脚本来启动训练。
 
@@ -136,3 +136,4 @@ python infer_qlora.py \
 - 使用llama-factory对LLM进行预训练、监督微调、强化学习（Colab笔记本）：https://colab.research.google.com/drive/1d5KQtbemerlSDSxZIfAaWXhKr30QypiK?usp=sharing#scrollTo=psywJyo75vt6
 - Qwen2.5使用指南：https://github.com/datawhalechina/self-llm/tree/master/models/Qwen2.5
 - 使用Ollama在本地部署大模型：https://ollama.com/
+- OneFlow的分布式训练教程：https://docs.oneflow.org/master/parallelism/01_introduction.html
