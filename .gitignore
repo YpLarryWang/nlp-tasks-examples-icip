@@ -1,3 +1,4 @@
+.gitignore
 **/.DS_Store
 local/**
 temp_llm_book/**
