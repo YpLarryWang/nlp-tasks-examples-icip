@@ -99,7 +99,3 @@ if "__main__" == __name__:
     
     trainer.train() # 开始训练
     
-    # 显式销毁进程组
-    if torch.distributed.is_initialized():
-        torch.distributed.destroy_process_group()
-    

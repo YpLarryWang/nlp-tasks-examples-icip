@@ -1,0 +1,7 @@
+name: llm_env
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+prefix: /home/wangyupei/miniconda3/envs/llm_env
+
