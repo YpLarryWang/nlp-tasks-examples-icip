@@ -8,11 +8,13 @@
 - PyTorch教程
   - [常见问题与解答](torch-memo/)
   - Stanford CS224N PyTorch Tutorial: [[原版]](torch-memo/SP_24_CS224N_PyTorch_Tutorial.ipynb),[[备注版]](notebook/Revised_SP_24_CS224N_PyTorch_Tutorial.ipynb)
+- 自然语言处理案例
   - [使用MLP判断6位2进制数的对称性](notebook/detect_symmetry_mlp.ipynb)
   - [使用TextCNN进行IMDB电影评论情感分类](notebook/SP2025_TEXT_CLS_CNN.ipynb)
   - [使用LSTM进行IMDB电影评论情感分类](notebook/SP25_LSTM_huggingface.ipynb)
   - [使用BERT进行IMDB电影评论情感分类并利用梯度积分做可解释性分析](notebook/SP25_imdb_bert_huggingface.ipynb)
   - [使用弱智吧数据微调Qwen2.5-0.5B-Instruct](llm-sft/)
+  - 扩展-人类偏好学习：[结合之前的情感分类模型，使用PPO强制GPT-2生成积极评论](https://huggingface.co/docs/trl/v0.1.1/sentiment_tuning)
 
 ## 往年示例代码
 

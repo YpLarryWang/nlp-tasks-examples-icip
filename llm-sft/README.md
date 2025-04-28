@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## LoRA 微调
 
-本项目提供了一个使用 LoRA 技术对 Qwen 模型进行微调的示例脚本。
+本项目提供了一个使用 [LoRA 技术](https://arxiv.org/abs/2106.09685)对 Qwen 模型进行微调的示例脚本。
 
 通过运行 `run_qwen_no_sft_trainer.bash` 脚本来启动训练。
 
@@ -55,7 +55,7 @@ bash run_qwen_no_sft_trainer.bash
 
 ## QLoRA 量化微调
 
-本项目还提供了一个使用 QLoRA 技术对 Qwen 模型进行量化微调的示例脚本。
+本项目还提供了一个使用 [QLoRA 技术](https://arxiv.org/abs/2305.14314)对 Qwen 模型进行量化微调的示例脚本。
 
 ## 基本用法
 
