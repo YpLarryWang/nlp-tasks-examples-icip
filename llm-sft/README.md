@@ -21,7 +21,7 @@ conda activate 你的环境名称
 pip install -r requirements.txt
 ```
 
-注意到，`bitsandbytes`库的安装对环境有着较高的要求，请参考[官方文档](https://huggingface.co/docs/bitsandbytes/main/installation)。在159服务器上，收到GCC版本限制，我们无法使用0.42版本以上的`bitsandbytes`。因此无法使用`bitsandbytes`的量化功能。此时，无需严格遵循这里提供的环境配置，安装当前系统允许的最高版本即可。
+注意到，`bitsandbytes`库的安装对环境有着较高的要求，请参考[官方文档](https://huggingface.co/docs/bitsandbytes/main/installation)。在159服务器上，受到GCC版本限制，我们无法使用0.42版本以上的`bitsandbytes`。因此无法使用`bitsandbytes`的量化功能。此时，无需严格遵循这里提供的环境配置，安装当前系统允许的最高版本即可。
 
 ## LoRA 微调
 

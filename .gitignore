@@ -1,9 +1,0 @@
-.gitignore
-**/.DS_Store
-local/**
-temp_llm_book/**
-call_api_with_credits.ipynb
-run_bnu_local_test.sh
-run_local_test.sh
-api_request_parallel_processor_*.py
-llm-sft/infer_qlora.bash
