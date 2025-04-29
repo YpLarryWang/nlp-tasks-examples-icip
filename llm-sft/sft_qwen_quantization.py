@@ -59,7 +59,7 @@ if "__main__" == __name__:
         print(f"Loading model with dtype: {model_dtype}")
     # ---------------
 
-    # 处理数据集 (代码不变)
+    # 处理数据集
     df = pd.read_json(custom_args.dataset_name_or_path, lines=True)
     ds = Dataset.from_pandas(df)
 
@@ -103,11 +103,11 @@ if "__main__" == __name__:
 
     print(f"Model loaded. Dtype: {model.dtype}") # 打印实际加载后的数据类型 (可能是 torch.int8)
 
-    # --- PEFT 配置 (基本不变，但 target_modules 可能需要确认) ---
+    # --- PEFT 配置 ---
     # 对于 Qwen，这些 target_modules 通常是正确的，也可以尝试让 PEFT 自动寻找
     peft_config = LoraConfig(
         task_type=TaskType.CAUSAL_LM,
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"], # 对 Qwen 应该适用
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"], # 对 Qwen 适用
         # 或者尝试自动寻找: target_modules=None, # 让 peft 自动寻找 Lora 目标模块 (某些模型需要)
         inference_mode=False,
         r=8,
@@ -159,7 +159,7 @@ if "__main__" == __name__:
     )
     # ----------------------------
 
-    # 使用trainer训练 (代码不变)
+    # 使用trainer训练
     trainer = Trainer(
         model=model,
         args=args,
@@ -169,6 +169,6 @@ if "__main__" == __name__:
 
     trainer.train() # 开始训练
 
-    # 显式销毁进程组 (代码不变)
+    # 显式销毁进程组
     if torch.distributed.is_initialized():
         torch.distributed.destroy_process_group()
