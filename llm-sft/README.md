@@ -137,3 +137,4 @@ python infer_qlora.py \
 - Qwen2.5使用指南：https://github.com/datawhalechina/self-llm/tree/master/models/Qwen2.5
 - 使用Ollama在本地部署大模型：https://ollama.com/
 - OneFlow的分布式训练教程：https://docs.oneflow.org/master/parallelism/01_introduction.html
+- QLoRA教程：https://readpaper.feishu.cn/docx/CrMGdSVPKow5d1x1XQMcJioRnQe
